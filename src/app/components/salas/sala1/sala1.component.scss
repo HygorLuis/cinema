@@ -26,7 +26,7 @@
     justify-content: center;
 
     button {
-      @include mixins.borda(transparent, 3px);
+      @include mixins.borda(transparent);
       background: colors.$verde;
       cursor: pointer;
 
@@ -35,7 +35,7 @@
       }
 
       &:hover {
-        border-color: colors.$azul-claro;
+        box-shadow: 0 0 10px colors.$azul;
       }
     }
 
@@ -45,10 +45,11 @@
 
     label {
       position: absolute;
-      transform: translateY(70%);
+      transform: translateY(60%);
       font-size: .7rem;
       font-weight: 700;
       color: colors.$branco;
+      cursor: pointer;
     }
   }
 
