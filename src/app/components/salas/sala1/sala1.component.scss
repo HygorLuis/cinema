@@ -14,48 +14,41 @@
   #lado-esquerdo {
     grid-area: lado-esquerdo;
     @include mixins.grid-poltronas();
+  }
 
-    div {
+  #lado-direito {
+    grid-area: lado-direito;
+    @include mixins.grid-poltronas();
+  }
+
+  .poltrona {
+    display: flex;
+    justify-content: center;
+
+    button {
       @include mixins.borda(transparent, 3px);
-      @include mixins.poltrona();
+      background: colors.$verde;
+      cursor: pointer;
 
-      a {
-        img {
-          @include mixins.img-poltrona();
-        }
-      }
-
-      label {
-        @include mixins.numero-cadeira();
+      img {
+        width: 50px;
       }
 
       &:hover {
         border-color: colors.$azul-claro;
       }
     }
-  }
 
-  #lado-direito {
-    grid-area: lado-direito;
-    @include mixins.grid-poltronas();
+    .selection {
+      background: colors.$azul-claro !important;
+    }
 
-    div {
-      @include mixins.borda(transparent, 3px);
-      @include mixins.poltrona();
-
-      a {
-        img {
-          @include mixins.img-poltrona();
-        }
-      }
-
-      label {
-        @include mixins.numero-cadeira();
-      }
-
-      &:hover {
-        border-color: colors.$azul-claro;
-      }
+    label {
+      position: absolute;
+      transform: translateY(70%);
+      font-size: .7rem;
+      font-weight: 700;
+      color: colors.$branco;
     }
   }
 

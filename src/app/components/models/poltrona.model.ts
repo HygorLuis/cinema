@@ -8,7 +8,6 @@ export class Poltrona {
     this.disponivel = disponivel;
   }
 
-  id!: number;
   numero: number;
   disponivel: boolean;
   lado: Lado;

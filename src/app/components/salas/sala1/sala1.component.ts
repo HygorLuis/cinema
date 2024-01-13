@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Poltrona } from '../../models/poltrona.model';
 import { Lado } from '../../enums/lado';
 import { SalaService } from '../../services/sala.service';
@@ -13,6 +13,7 @@ export class Sala1Component {
   salas: Sala[] = [];
   poltronasEsquerda: Poltrona[] = [];
   poltronasDireito: Poltrona[] = [];
+  @Output() poltronasSelecionadas: Poltrona[] = [];
 
   constructor(private service: SalaService) {
     service.listar().subscribe({
@@ -53,15 +54,29 @@ export class Sala1Component {
   carregarPoltronas(): void {
     this.service.listar().subscribe({
       next: (values) => {
-        console.log(`salas: ${JSON.stringify(values)}`);
-
         const sala = values.find(x => x.id == 1) as Sala;
 
         this.poltronasEsquerda = sala.poltronas.filter(x => x.lado == Lado.Esquerdo);
         this.poltronasDireito= sala.poltronas.filter(x => x.lado == Lado.Direito);
       },
       error: (erro) => console.error(erro),
-      complete: () => console.info('poltronas carregada')
+      complete: () => console.info('poltronas carregadas')
     })
+  }
+
+  selecionarPoltrona(poltronaSelecionada: Poltrona): void {
+    if (!this.verificarSelecaoPoltrona(poltronaSelecionada)) {
+      this.poltronasSelecionadas.push(poltronaSelecionada);
+    } else {
+      const index = this.poltronasSelecionadas.findIndex(x => x.numero === poltronaSelecionada.numero && x.lado === poltronaSelecionada.lado);
+
+      if (index !== -1) {
+        this.poltronasSelecionadas.splice(index, 1);
+      }
+    }
+  }
+
+  verificarSelecaoPoltrona(poltrona: Poltrona): boolean {
+    return this.poltronasSelecionadas.some(x => x.numero === poltrona.numero && x.lado === poltrona.lado);
   }
 }

@@ -1,20 +1,20 @@
 <section class="container grid">
   <div id="lado-esquerdo">
-    @for (poltrona of poltronasEsquerda; track poltrona.id) {
-      <div>
-        <a>
+    @for (poltrona of poltronasEsquerda; track poltrona.numero) {
+      <div class="poltrona">
+        <button [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}" (click)="selecionarPoltrona(poltrona)">
           <img src="../../.././../assets/poltrona.png">
-        </a>
+        </button>
         <label>Nº {{poltrona.numero}}</label>
       </div>
     }
   </div>
   <div id="lado-direito">
-    @for (poltrona of poltronasDireito; track poltrona.id) {
-      <div>
-        <a>
+    @for (poltrona of poltronasDireito; track poltrona.numero) {
+      <div class="poltrona">
+        <button [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}" (click)="selecionarPoltrona(poltrona)">
           <img src="../../.././../assets/poltrona.png">
-        </a>
+        </button>
         <label>Nº {{poltrona.numero}}</label>
       </div>
     }
