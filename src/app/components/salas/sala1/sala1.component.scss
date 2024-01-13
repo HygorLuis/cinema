@@ -29,6 +29,7 @@
       @include mixins.borda(transparent);
       background: colors.$verde;
       cursor: pointer;
+      transition: box-shadow .3s ease;
 
       img {
         width: 50px;
