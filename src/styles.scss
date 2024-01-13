@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@use './app/base/colors';
+@use './app/base/mixins';
+
+@import 'reset-css';
+
+.container {
+  @include mixins.borda(colors.$preto);
+  padding: 1rem;
+}

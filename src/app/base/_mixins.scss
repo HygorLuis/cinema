@@ -1,0 +1,33 @@
+@use './colors';
+
+@mixin borda($cor, $borda: 1px) {
+  border: solid $borda $cor;
+  border-radius: 8px;
+}
+
+@mixin grid-poltronas() {
+  display: grid;
+  grid-template-columns: repeat(11, auto);
+  grid-template-rows: repeat(9, auto);
+  gap: .5rem;
+}
+
+@mixin poltrona() {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: colors.$verde;
+  cursor: pointer;
+}
+
+@mixin img-poltrona($width: 50px) {
+  width: $width;
+}
+
+@mixin numero-cadeira() {
+  position: absolute;
+  transform: translateY(-18px);
+  font-size: .7rem;
+  font-weight: 700;
+  color: colors.$branco;
+}

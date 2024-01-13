@@ -1,0 +1,23 @@
+<section class="container grid">
+  <div id="lado-esquerdo">
+    @for (poltrona of poltronasEsquerda; track poltrona.id) {
+      <div>
+        <a>
+          <img src="../../.././../assets/poltrona.png">
+        </a>
+        <label>Nº {{poltrona.numero}}</label>
+      </div>
+    }
+  </div>
+  <div id="lado-direito">
+    @for (poltrona of poltronasDireito; track poltrona.id) {
+      <div>
+        <a>
+          <img src="../../.././../assets/poltrona.png">
+        </a>
+        <label>Nº {{poltrona.numero}}</label>
+      </div>
+    }
+  </div>
+  <label class="tela">TELA</label>
+</section>

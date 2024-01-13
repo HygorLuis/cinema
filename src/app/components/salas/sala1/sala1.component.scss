@@ -1,0 +1,69 @@
+@use '../../../base/colors';
+@use '../../../base/mixins';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: 1fr, auto;
+  grid-template-areas:
+    "lado-esquerdo lado-direito"
+    "tela tela";
+  row-gap: 4rem;
+  column-gap: 3rem;
+
+  #lado-esquerdo {
+    grid-area: lado-esquerdo;
+    @include mixins.grid-poltronas();
+
+    div {
+      @include mixins.borda(transparent, 3px);
+      @include mixins.poltrona();
+
+      a {
+        img {
+          @include mixins.img-poltrona();
+        }
+      }
+
+      label {
+        @include mixins.numero-cadeira();
+      }
+
+      &:hover {
+        border-color: colors.$azul-claro;
+      }
+    }
+  }
+
+  #lado-direito {
+    grid-area: lado-direito;
+    @include mixins.grid-poltronas();
+
+    div {
+      @include mixins.borda(transparent, 3px);
+      @include mixins.poltrona();
+
+      a {
+        img {
+          @include mixins.img-poltrona();
+        }
+      }
+
+      label {
+        @include mixins.numero-cadeira();
+      }
+
+      &:hover {
+        border-color: colors.$azul-claro;
+      }
+    }
+  }
+
+  .tela {
+    grid-area: tela;
+    text-align: center;
+    background: colors.$azul;
+    color: colors.$branco;
+    padding: .8rem 0;
+  }
+}
