@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { Sala1Component } from './components/salas/sala1/sala1.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { IngressosComponent } from './components/ingressos/ingressos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Sala1Component
+    Sala1Component,
+    IngressosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 import { Component, Output } from '@angular/core';
-import { Poltrona } from '../../models/poltrona.model';
-import { Lado } from '../../enums/lado';
-import { SalaService } from '../../services/sala.service';
-import { Sala } from '../../models/sala.model';
+import { Poltrona } from '../../../models/poltrona.model';
+import { Lado } from '../../../enums/lado';
+import { SalaService } from '../../../services/sala.service';
+import { Sala } from '../../../models/sala.model';
 
 @Component({
   selector: 'app-sala1',
