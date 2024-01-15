@@ -1,0 +1,47 @@
+@use '../../base/colors';
+@use '../../base/mixins';
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
+  padding: 2rem 4rem;
+
+  .card-filme {
+    @include mixins.borda(transparent);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "img"
+      "botao";
+    background: colors.$preto-opaco;
+    height: 220px;
+
+    img {
+      grid-area: img;
+      width: 115px;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .botao-comprar {
+      grid-area: botao;
+      justify-self: center;
+      align-self: center;
+      text-align: center;
+      @include mixins.borda(transparent);
+      background: colors.$vermelho;
+      color: colors.$branco;
+      padding: .3rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .8rem;
+      transition: box-shadow .3s ease;
+
+      &:hover {
+        box-shadow: 0 0 4px colors.$branco;
+      }
+    }
+  }
+}

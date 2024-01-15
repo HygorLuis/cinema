@@ -1,4 +1,96 @@
 {
+  "filmes": [
+    {
+      "id": 1,
+      "nome": "Aquaman 2: O Reino Perdido",
+      "img": "../../../assets/aquaman2.jpg"
+    },
+    {
+      "id": 2,
+      "nome": "Avatar: O Caminhoda Água",
+      "img": "../../../assets/avatar2.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "As Marvels",
+      "img": "../../../assets/marvels.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Gato de Botas 2: O Último Pedido",
+      "img": "../../../assets/gato-botas-2.jpg"
+    },
+    {
+      "id": 5,
+      "nome": "Transformers: O Despertar das Feras",
+      "img": "../../../assets/transformers-despertar-das-feras.jpg"
+    },
+    {
+      "id": 6,
+      "nome": "Barbie",
+      "img": "../../../assets/barbie.jpg"
+    },
+    {
+      "id": 7,
+      "nome": "O Exorcista: O Devoto",
+      "img": "../../../assets/exorcista-devoto.jpg"
+    },
+    {
+      "id": 8,
+      "nome": "Velozes & Furiosos 10",
+      "img": "../../../assets/velozes-furiosos-10.jpg"
+    },
+    {
+      "id": 9,
+      "nome": "Vingadores: Ultimato",
+      "img": "../../../assets/vingadores-ultimato.jpg"
+    },
+    {
+      "id": 10,
+      "nome": "Jogos Mortais X",
+      "img": "../../../assets/jogos-mortais.jpg"
+    },
+    {
+      "id": 11,
+      "nome": "The Flash",
+      "img": "../../../assets/flash.jpg"
+    },
+    {
+      "id": 12,
+      "nome": "Homem-Aranha: Sem Volta Para Casa",
+      "img": "../../../assets/homem-aranha-sem-volta-para-casa.jpg"
+    },
+    {
+      "id": 13,
+      "nome": "Vingadores: Guerra Infinita",
+      "img": "../../../assets/vingadores-guerra-infinita.jpg"
+    },
+    {
+      "id": 14,
+      "nome": "Drácula: A Última Viagem do Deméter",
+      "img": "../../../assets/dracula-ultima-viagem-demeter.jpg"
+    },
+    {
+      "id": 15,
+      "nome": "Jogos Vorazes: A Esperança - Parte 1",
+      "img": "../../../assets/jogos-vorazes-esperanca-1.jpg"
+    },
+    {
+      "id": 16,
+      "nome": "Adão Negro",
+      "img": "../../../assets/adao-negro.jpg"
+    },
+    {
+      "id": 17,
+      "nome": "Top Gun: Maverick",
+      "img": "../../../assets/top-gun-maverick.jpg"
+    },
+    {
+      "id": 18,
+      "nome": "A Era do Gelo",
+      "img": "../../../assets/era-do-gelo.jpg"
+    }
+  ],
   "salas": [
     {
       "poltronas": [
