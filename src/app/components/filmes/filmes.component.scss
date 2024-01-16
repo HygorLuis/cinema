@@ -9,7 +9,7 @@
   padding: 2rem 4rem;
 
   .card-filme {
-    @include mixins.borda(transparent);
+    @include mixins.borda(transparent, 0px);
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-areas:
@@ -17,11 +17,10 @@
       "botao";
     background: colors.$preto-opaco;
     width: 115px;
-    height: 220px;
-    position: relative;
-    // transition:
-    //   width .3s ease-out,
-    //   height .3s ease-out;
+    height: 215px;
+    transition:
+      transform .3s ease,
+      height .3s ease;
 
     img {
       grid-area: img;
@@ -41,16 +40,30 @@
       cursor: pointer;
       font-weight: 600;
       font-size: .8rem;
-      transition: box-shadow .3s ease;
+      transition:
+        box-shadow .3s ease,
+        font-size .1s ease;
 
       &:hover {
         box-shadow: 0 0 4px colors.$branco;
       }
     }
 
-    // &:hover {
-    //   width: 230px;
-    //   height: 400px;
-    // }
+    &:hover {
+      $scale: 170%;
+
+      z-index: 1;
+      transform: translateY(calc(($scale - 100%) / 2)) scale($scale);
+      box-shadow: 0 0 3px colors.$preto;
+
+      .botao-comprar {
+        font-size: .5rem;
+        font-weight: 700;
+      }
+
+      &.card-filme {
+        height: 205px;
+      }
+    }
   }
 }
