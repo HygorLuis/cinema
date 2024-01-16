@@ -7,7 +7,7 @@
 
 @mixin grid-poltronas() {
   display: grid;
-  grid-template-columns: repeat(11, auto);
+  grid-template-columns: repeat(8, auto);
   grid-template-rows: repeat(9, auto);
   gap: .5rem;
 }

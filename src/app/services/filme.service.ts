@@ -15,4 +15,8 @@ export class FilmeService {
   listar(): Observable<Filme[]> {
     return this.httpCliente.get<Filme[]>(this.API);
   }
+
+  buscar(id: number): Observable<Filme> {
+    return this.httpCliente.get<Filme>(`${this.API}/${id}`);
+  }
 }

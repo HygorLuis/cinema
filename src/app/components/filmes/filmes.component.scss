@@ -5,7 +5,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: start;
   gap: 2rem;
   padding: 2rem 4rem;
 
@@ -17,11 +16,16 @@
       "img"
       "botao";
     background: colors.$preto-opaco;
+    width: 115px;
     height: 220px;
+    position: relative;
+    // transition:
+    //   width .3s ease-out,
+    //   height .3s ease-out;
 
     img {
       grid-area: img;
-      width: 115px;
+      max-width: 100%;
       border-radius: 8px 8px 0 0;
     }
 
@@ -43,5 +47,10 @@
         box-shadow: 0 0 4px colors.$branco;
       }
     }
+
+    // &:hover {
+    //   width: 230px;
+    //   height: 400px;
+    // }
   }
 }

@@ -3,11 +3,16 @@
 
 @import 'reset-css';
 
+a {
+  text-decoration: none;
+}
+
 body {
   background: colors.$preto;
 }
 
 .card {
-  @include mixins.borda(colors.$preto);
+  @include mixins.borda(transparent);
+  background: colors.$preto-opaco;
   padding: 1rem;
 }

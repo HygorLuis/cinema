@@ -2,63 +2,78 @@
 @use '../../../base/mixins';
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: 1fr, auto;
-  grid-template-areas:
-    "lado-esquerdo lado-direito"
-    "tela tela";
-  row-gap: 4rem;
-  column-gap: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
 
-  #lado-esquerdo {
-    grid-area: lado-esquerdo;
-    @include mixins.grid-poltronas();
-  }
+  .grid-poltronas {
+    width: 1050px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: 1fr, auto;
+    grid-template-areas:
+      "lado-esquerdo lado-direito"
+      "tela tela";
+    row-gap: 2rem;
+    column-gap: 1.7rem;
 
-  #lado-direito {
-    grid-area: lado-direito;
-    @include mixins.grid-poltronas();
-  }
+    #lado-esquerdo {
+      grid-area: lado-esquerdo;
+      @include mixins.grid-poltronas();
+    }
 
-  .poltrona {
-    display: flex;
-    justify-content: center;
+    #lado-direito {
+      grid-area: lado-direito;
+      @include mixins.grid-poltronas();
+    }
 
-    button {
-      @include mixins.borda(transparent);
-      background: colors.$verde;
-      cursor: pointer;
-      transition: box-shadow .3s ease;
+    .poltrona {
+      display: flex;
+      justify-content: center;
+      min-width: 55px;
 
-      img {
-        width: 50px;
+      button {
+        @include mixins.borda(transparent);
+        background: colors.$verde;
+        cursor: pointer;
+        transition: box-shadow .3s ease;
+
+        img {
+          max-width: 100%;
+        }
+
+        &:hover {
+          box-shadow: 0 0 10px colors.$azul;
+        }
       }
 
-      &:hover {
-        box-shadow: 0 0 10px colors.$azul;
+      .selection {
+        background: colors.$azul-claro !important;
+      }
+
+      label {
+        position: absolute;
+        transform: translateY(40%);
+        font-size: .7rem;
+        font-weight: 700;
+        color: colors.$branco;
+        cursor: pointer;
       }
     }
 
-    .selection {
-      background: colors.$azul-claro !important;
-    }
-
-    label {
-      position: absolute;
-      transform: translateY(60%);
-      font-size: .7rem;
-      font-weight: 700;
+    .tela {
+      grid-area: tela;
+      text-align: center;
+      background: colors.$azul;
       color: colors.$branco;
-      cursor: pointer;
+      padding: .8rem 0;
     }
   }
 
-  .tela {
-    grid-area: tela;
-    text-align: center;
-    background: colors.$azul;
-    color: colors.$branco;
-    padding: .8rem 0;
+  .ingressos {
+    position: relative;
   }
 }
+
+

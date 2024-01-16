@@ -1,22 +1,27 @@
-import { Component, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Poltrona } from '../../../models/poltrona.model';
 import { Lado } from '../../../enums/lado';
 import { SalaService } from '../../../services/sala.service';
 import { Sala } from '../../../models/sala.model';
+import { Filme } from '../../../models/filme.model';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { FilmeService } from '../../../services/filme.service';
 
 @Component({
   selector: 'app-sala1',
   templateUrl: './sala1.component.html',
   styleUrl: './sala1.component.scss',
 })
-export class Sala1Component {
+export class Sala1Component implements OnInit {
   salas: Sala[] = [];
   poltronasEsquerda: Poltrona[] = [];
   poltronasDireito: Poltrona[] = [];
-  @Output() poltronasSelecionadas: Poltrona[] = [];
+  @Input() poltronasSelecionadas: Poltrona[] = [];
+  filme!: Filme;
 
-  constructor(private service: SalaService) {
-    service.listar().subscribe({
+  constructor(private salaService: SalaService, private filmeService: FilmeService, private route: ActivatedRoute) {
+    salaService.listar().subscribe({
       next: (value) => {
         this.salas = value;
 
@@ -31,14 +36,22 @@ export class Sala1Component {
     })
   }
 
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+       this.filmeService.buscar(Number.parseInt(params.get('idFilme') as string)).subscribe(values => {
+        this.filme = values;
+       });
+    });
+  }
+
   criarSala(): void {
     const sala = new Sala();
-    const poltronasEsquerdas = this.criarPoltronas(99, Lado.Esquerdo);
-    const poltronasDireitas = this.criarPoltronas(99, Lado.Direito);
+    const poltronasEsquerdas = this.criarPoltronas(72, Lado.Esquerdo);
+    const poltronasDireitas = this.criarPoltronas(72, Lado.Direito);
 
     sala.poltronas = poltronasEsquerdas.concat(poltronasDireitas);
 
-    this.service.criar(sala).subscribe();
+    this.salaService.criar(sala).subscribe();
   }
 
   criarPoltronas(qtdPoltronas: number, lado: Lado): Poltrona[] {
@@ -52,7 +65,7 @@ export class Sala1Component {
   }
 
   carregarPoltronas(): void {
-    this.service.listar().subscribe({
+    this.salaService.listar().subscribe({
       next: (values) => {
         const sala = values.find(x => x.id == 1) as Sala;
 

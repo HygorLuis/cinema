@@ -1,23 +1,26 @@
-<section class="card grid">
-  <div id="lado-esquerdo">
-    @for (poltrona of poltronasEsquerda; track poltrona.numero) {
-      <div class="poltrona">
-        <label for="poltrona-{{poltrona.numero}}-{{poltrona.lado}}" >Nº {{poltrona.numero}}</label>
-        <button id="poltrona-{{poltrona.numero}}-{{poltrona.lado}}" [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}" (click)="selecionarPoltrona(poltrona)">
-          <img src="../../.././../assets/poltrona.png">
-        </button>
-      </div>
-    }
+<section class="grid">
+  <div  class="card grid-poltronas">
+    <div id="lado-esquerdo">
+      @for (poltrona of poltronasEsquerda; track poltrona.numero) {
+        <div class="poltrona">
+          <label for="poltrona-{{poltrona.numero}}-{{poltrona.lado}}" >Nº {{poltrona.numero}}</label>
+          <button id="poltrona-{{poltrona.numero}}-{{poltrona.lado}}" [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}" (click)="selecionarPoltrona(poltrona)">
+            <img src="../../.././../assets/poltrona.png">
+          </button>
+        </div>
+      }
+    </div>
+    <div id="lado-direito">
+      @for (poltrona of poltronasDireito; track poltrona.numero) {
+        <div class="poltrona">
+          <label for="poltrona-{{poltrona.numero}}-{{poltrona.lado}}">Nº {{poltrona.numero}}</label>
+          <button id="poltrona-{{poltrona.numero}}-{{poltrona.lado}}" [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}" (click)="selecionarPoltrona(poltrona)">
+            <img src="../../.././../assets/poltrona.png">
+          </button>
+        </div>
+      }
+    </div>
+    <label class="tela">TELA</label>
   </div>
-  <div id="lado-direito">
-    @for (poltrona of poltronasDireito; track poltrona.numero) {
-      <div class="poltrona">
-        <label for="poltrona-{{poltrona.numero}}-{{poltrona.lado}}">Nº {{poltrona.numero}}</label>
-        <button id="poltrona-{{poltrona.numero}}-{{poltrona.lado}}" [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}" (click)="selecionarPoltrona(poltrona)">
-          <img src="../../.././../assets/poltrona.png">
-        </button>
-      </div>
-    }
-  </div>
-  <label class="tela">TELA</label>
+  <app-ingressos class="ingressos" [filmeSelecionado]="filme"></app-ingressos>
 </section>
