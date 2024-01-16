@@ -5,7 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  column-gap: 2rem;
   padding: 2rem 4rem;
 
   .card-filme {
@@ -15,7 +15,6 @@
     grid-template-areas:
       "img"
       "botao";
-    background: colors.$preto-opaco;
     width: 115px;
     height: 215px;
     transition:
@@ -25,27 +24,34 @@
     img {
       grid-area: img;
       max-width: 100%;
-      border-radius: 8px 8px 0 0;
+      border-radius: 8px;
     }
 
-    .botao-comprar {
+    .comprar {
       grid-area: botao;
-      justify-self: center;
-      align-self: center;
-      text-align: center;
-      @include mixins.borda(transparent);
-      background: colors.$vermelho;
-      color: colors.$branco;
-      padding: .3rem 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: .8rem;
-      transition:
-        box-shadow .3s ease,
-        font-size .1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: colors.$preto-opaco;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      height: 0px;
+      transition: height .3s ease-in;
 
-      &:hover {
-        box-shadow: 0 0 4px colors.$branco;
+      .botao {
+        @include mixins.borda(transparent);
+        background: colors.$vermelho;
+        color: colors.$branco;
+        padding: .3rem 1rem;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: .5rem;
+        transition:
+          box-shadow .3s ease;
+
+        &:hover {
+          box-shadow: 0 0 4px colors.$branco;
+        }
       }
     }
 
@@ -55,14 +61,15 @@
       z-index: 1;
       transform: translateY(calc(($scale - 100%) / 2)) scale($scale);
       box-shadow: 0 0 3px colors.$preto;
+      background: colors.$preto;
+      height: 100%;
 
-      .botao-comprar {
-        font-size: .5rem;
-        font-weight: 700;
+      .comprar {
+        height: 30px;
       }
 
-      &.card-filme {
-        height: 205px;
+      & img {
+        border-radius: 8px 8px 0 0;
       }
     }
   }

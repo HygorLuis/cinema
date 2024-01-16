@@ -2,7 +2,9 @@
   @for (filme of filmes; track filme.id) {
     <div class="card-filme">
       <img src="{{filme.img}}" alt="Cartaz {{filme.nome}}">
-      <a class="botao-comprar" (click)="escolherPoltronas(filme)">Comprar</a>
+      <div class="comprar">
+        <a class="botao" (click)="escolherPoltronas(filme)">Comprar</a>
+      </div>
     </div>
   }
 </section>
