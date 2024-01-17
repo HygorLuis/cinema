@@ -1,6 +1,14 @@
 @use '../../base/colors';
 @use '../../base/mixins';
 
+@keyframes shadow {
+  0%   {box-shadow: 0 0 1px colors.$branco;}
+  25%  {box-shadow: 0 0 2px colors.$branco;}
+  50%  {box-shadow: 0 0 3px colors.$branco;}
+  75%  {box-shadow: 0 0 4px colors.$branco;}
+  100% {box-shadow: 0 0 5px colors.$branco;}
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -50,7 +58,7 @@
           box-shadow .3s ease;
 
         &:hover {
-          box-shadow: 0 0 4px colors.$branco;
+          animation: shadow .8s ease-out infinite alternate;
         }
       }
     }
