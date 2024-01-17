@@ -1,19 +1,11 @@
 @use '../../base/colors';
 @use '../../base/mixins';
 
-@keyframes shadow {
-  0%   {box-shadow: 0 0 1px colors.$branco;}
-  25%  {box-shadow: 0 0 2px colors.$branco;}
-  50%  {box-shadow: 0 0 3px colors.$branco;}
-  75%  {box-shadow: 0 0 4px colors.$branco;}
-  100% {box-shadow: 0 0 5px colors.$branco;}
-}
-
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  column-gap: 2rem;
+  gap: 2rem;
   padding: 2rem 4rem;
 
   .card-filme {
@@ -24,7 +16,6 @@
       "img"
       "botao";
     width: 115px;
-    height: 215px;
     transition:
       transform .3s ease,
       height .3s ease;
@@ -37,6 +28,8 @@
 
     .comprar {
       grid-area: botao;
+      position: absolute;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -47,6 +40,14 @@
       transition: height .3s ease-in;
 
       .botao {
+        @keyframes shadow {
+          0%   {box-shadow: 0 0 1px colors.$branco;}
+          25%  {box-shadow: 0 0 2px colors.$branco;}
+          50%  {box-shadow: 0 0 3px colors.$branco;}
+          75%  {box-shadow: 0 0 4px colors.$branco;}
+          100% {box-shadow: 0 0 5px colors.$branco;}
+        }
+
         @include mixins.borda(transparent);
         background: colors.$vermelho;
         color: colors.$branco;
@@ -58,7 +59,7 @@
           box-shadow .3s ease;
 
         &:hover {
-          animation: shadow .8s ease-out infinite alternate;
+          animation: shadow .7s ease-out infinite alternate;
         }
       }
     }
