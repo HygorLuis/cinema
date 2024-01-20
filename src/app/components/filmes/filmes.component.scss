@@ -1,5 +1,6 @@
 @use '../../base/colors';
 @use '../../base/mixins';
+@use '../../base/properties';
 
 .container {
   display: flex;
@@ -17,8 +18,8 @@
       "botao";
     width: 115px;
     transition:
-      transform .3s ease,
-      height .3s ease;
+      transform properties.$tempo-transacao ease,
+      height properties.$tempo-transacao ease;
 
     img {
       grid-area: img;
@@ -37,7 +38,7 @@
       border-radius: 0 0 8px 8px;
       overflow: hidden;
       height: 0px;
-      transition: height .3s ease-in;
+      transition: height properties.$tempo-transacao ease-in;
 
       .botao {
         @keyframes shadow {
@@ -56,7 +57,7 @@
         font-weight: 700;
         font-size: .5rem;
         transition:
-          box-shadow .3s ease;
+          box-shadow properties.$tempo-transacao ease;
 
         &:hover {
           animation: shadow .7s ease-out infinite alternate;

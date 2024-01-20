@@ -1,5 +1,6 @@
 @use '../../../base/colors';
 @use '../../../base/mixins';
+@use '../../../base/properties';
 
 .grid {
   display: flex;
@@ -32,19 +33,17 @@
       display: flex;
       justify-content: center;
       min-width: 55px;
+      border-radius: 8px;
+      transition:
+        transform properties.$tempo-transacao ease;
 
       button {
         @include mixins.borda(transparent);
         background: colors.$verde;
         cursor: pointer;
-        transition: box-shadow .3s ease;
 
         img {
           max-width: 100%;
-        }
-
-        &:hover {
-          box-shadow: 0 0 10px colors.$azul;
         }
       }
 
@@ -59,6 +58,16 @@
         font-weight: 700;
         color: colors.$branco;
         cursor: pointer;
+
+        &::before {
+          content: "Nº ";
+        }
+      }
+
+      &:hover {
+        z-index: 1;
+        transform: scale(140%);
+        box-shadow: 0 0 3px colors.$preto;
       }
     }
 
@@ -74,6 +83,45 @@
   .ingressos {
     position: relative;
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .grid {
+    .grid-poltronas {
+
+      #lado-esquerdo {
+        gap: 0px;
+      }
+
+      #lado-direito {
+        gap: 0px;
+      }
+
+      .poltrona {
+        min-width: auto;
+
+        button {
+          img {
+            display: none;
+          }
+        }
+      }
+
+      .tela {
+        padding: .8rem 0;
+        height: 20px;
+      }
+
+      label {
+        position: static;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
 }
 
 
