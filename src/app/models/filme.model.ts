@@ -1,5 +1,5 @@
 export class Filme {
-  id!: number;
-  nome!: string;
-  img!: string;
+  id: number = 0;
+  nome: string = "";
+  img: string = "";
 }

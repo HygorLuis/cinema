@@ -5,8 +5,8 @@ import { SalaService } from '../../../services/sala.service';
 import { Sala } from '../../../models/sala.model';
 import { Filme } from '../../../models/filme.model';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import { FilmeService } from '../../../services/filme.service';
+import { Ingresso } from '../../../models/ingresso.model';
 
 @Component({
   selector: 'app-sala1',
@@ -18,7 +18,8 @@ export class Sala1Component implements OnInit {
   poltronasEsquerda: Poltrona[] = [];
   poltronasDireito: Poltrona[] = [];
   @Input() poltronasSelecionadas: Poltrona[] = [];
-  filme!: Filme;
+  filme = new Filme();
+  ingressos = new Ingresso();
 
   constructor(private salaService: SalaService, private filmeService: FilmeService, private route: ActivatedRoute) {
     salaService.listar().subscribe({
@@ -80,11 +81,13 @@ export class Sala1Component implements OnInit {
   selecionarPoltrona(poltronaSelecionada: Poltrona): void {
     if (!this.verificarSelecaoPoltrona(poltronaSelecionada)) {
       this.poltronasSelecionadas.push(poltronaSelecionada);
+      this.ingressos.adicionar(this.poltronasSelecionadas);
     } else {
       const index = this.poltronasSelecionadas.findIndex(x => x.numero === poltronaSelecionada.numero && x.lado === poltronaSelecionada.lado);
 
       if (index !== -1) {
         this.poltronasSelecionadas.splice(index, 1);
+        this.ingressos.remover(this.poltronasSelecionadas);
       }
     }
   }

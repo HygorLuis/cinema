@@ -11,6 +11,7 @@
   </div>
 
   <hr>
+
     <div class="info-data">
       <span>14/01/2024 14:45</span>
       <span>Rio Claro - Sala 03</span>
@@ -18,4 +19,16 @@
 
   <hr>
 
+  <div class="detalhes-compra" [ngClass]="{ 'adquirido': ingressos.qtdIngressos > 0 }">
+    <div class="detalhes-ingressos">
+      @if (ingressos.qtdIngressos > 1) {
+        <p>{{ ingressos.qtdIngressos }} Ingressos</p>
+      } @else {
+        <p>{{ ingressos.qtdIngressos }} Ingresso</p>
+      }
+      <span>R$ {{ ingressos.valor }}</span>
+    </div>
+
+    <button class="botao-comprar">Comprar Ingressos</button>
+  </div>
 </section>
