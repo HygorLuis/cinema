@@ -51,6 +51,10 @@
         background: colors.$azul-claro !important;
       }
 
+      .indisponivel {
+        background: colors.$laranja !important;
+      }
+
       label {
         position: absolute;
         transform: translateY(40%);

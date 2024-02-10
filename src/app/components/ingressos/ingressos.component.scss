@@ -78,7 +78,10 @@
 
     .botao-comprar {
       @keyframes shadow {
-        0%  {box-shadow: 0 0 2px colors.$branco;}
+        20%  {box-shadow: 0 0 2px colors.$branco;}
+        40%  {box-shadow: 0 0 4px colors.$branco;}
+        60%  {box-shadow: 0 0 6px colors.$branco;}
+        80%  {box-shadow: 0 0 8px colors.$branco;}
         100% {box-shadow: 0 0 10px colors.$branco;}
       }
 
@@ -89,7 +92,7 @@
       color: colors.$branco;
       font-weight: 600;
       cursor: pointer;
-      animation: shadow .7s ease-out infinite alternate;
+      animation: shadow .7s ease infinite alternate;
 
       &:hover {
         animation-iteration-count: 0;

@@ -19,4 +19,12 @@ export class SalaService {
   listar(): Observable<Sala[]> {
     return this.httpCliente.get<Sala[]>(this.API);
   }
+
+  buscar(idSala: number): Observable<Sala> {
+    return this.httpCliente.get<Sala>(`${this.API}/${idSala}`);
+  }
+
+  atualizar(sala: Sala): Observable<Sala> {
+    return this.httpCliente.put<Sala>(`${this.API}/${sala.id}`, sala);
+  }
 }

@@ -14,7 +14,7 @@ import { Ingresso } from '../../../models/ingresso.model';
   styleUrl: './sala1.component.scss',
 })
 export class Sala1Component implements OnInit {
-  salas: Sala[] = [];
+  sala!: Sala;
   poltronasEsquerda: Poltrona[] = [];
   poltronasDireito: Poltrona[] = [];
   @Input() poltronasSelecionadas: Poltrona[] = [];
@@ -22,11 +22,11 @@ export class Sala1Component implements OnInit {
   ingressos = new Ingresso();
 
   constructor(private salaService: SalaService, private filmeService: FilmeService, private route: ActivatedRoute) {
-    salaService.listar().subscribe({
+    salaService.buscar(1).subscribe({
       next: (value) => {
-        this.salas = value;
+        this.sala = value;
 
-        if (this.salas.length == 0) {
+        if (this.sala === null || this.sala === undefined) {
           this.criarSala();
         }
 
@@ -66,16 +66,8 @@ export class Sala1Component implements OnInit {
   }
 
   carregarPoltronas(): void {
-    this.salaService.listar().subscribe({
-      next: (values) => {
-        const sala = values.find(x => x.id == 1) as Sala;
-
-        this.poltronasEsquerda = sala.poltronas.filter(x => x.lado == Lado.Esquerdo);
-        this.poltronasDireito= sala.poltronas.filter(x => x.lado == Lado.Direito);
-      },
-      error: (erro) => console.error(erro),
-      complete: () => console.info('poltronas carregadas')
-    })
+    this.poltronasEsquerda = this.sala.poltronas.filter(x => x.lado == Lado.Esquerdo);
+    this.poltronasDireito= this.sala.poltronas.filter(x => x.lado == Lado.Direito);
   }
 
   selecionarPoltrona(poltronaSelecionada: Poltrona): void {

@@ -41,13 +41,6 @@
       transition: height properties.$tempo-transacao ease-in;
 
       .botao {
-        @keyframes shadow {
-          0%   {box-shadow: 0 0 1px colors.$branco;}
-          25%  {box-shadow: 0 0 2px colors.$branco;}
-          50%  {box-shadow: 0 0 3px colors.$branco;}
-          75%  {box-shadow: 0 0 4px colors.$branco;}
-          100% {box-shadow: 0 0 5px colors.$branco;}
-        }
 
         @include mixins.borda(transparent);
         background: colors.$vermelho;
@@ -60,7 +53,7 @@
           box-shadow properties.$tempo-transacao ease;
 
         &:hover {
-          animation: shadow .7s ease-out infinite alternate;
+          box-shadow: 0 0 5px colors.$branco;
         }
       }
     }

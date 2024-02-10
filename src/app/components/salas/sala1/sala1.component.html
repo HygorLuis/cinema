@@ -4,7 +4,11 @@
       @for (poltrona of poltronasEsquerda; track poltrona.numero) {
         <div class="poltrona">
           <label for="poltrona-{{poltrona.numero}}-{{poltrona.lado}}">{{poltrona.numero}}</label>
-          <button id="poltrona-{{poltrona.numero}}-{{poltrona.lado}}" [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}" (click)="selecionarPoltrona(poltrona)">
+          <button id="poltrona-{{poltrona.numero}}-{{poltrona.lado}}"
+                  [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}"
+                  [ngClass]="{'indisponivel': !poltrona.disponivel}"
+                  [disabled]="!poltrona.disponivel"
+                  (click)="selecionarPoltrona(poltrona)">
             <img src="../../.././../assets/poltrona.png">
           </button>
         </div>
@@ -14,7 +18,11 @@
       @for (poltrona of poltronasDireito; track poltrona.numero) {
         <div class="poltrona">
           <label for="poltrona-{{poltrona.numero}}-{{poltrona.lado}}">{{poltrona.numero}}</label>
-          <button id="poltrona-{{poltrona.numero}}-{{poltrona.lado}}" [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}" (click)="selecionarPoltrona(poltrona)">
+          <button id="poltrona-{{poltrona.numero}}-{{poltrona.lado}}"
+                  [ngClass]="{'selection': verificarSelecaoPoltrona(poltrona)}"
+                  [ngClass]="{'indisponivel': !poltrona.disponivel}"
+                  [disabled]="!poltrona.disponivel"
+                  (click)="selecionarPoltrona(poltrona)">
             <img src="../../.././../assets/poltrona.png">
           </button>
         </div>
@@ -22,5 +30,5 @@
     </div>
     <label class="tela">TELA</label>
   </div>
-  <app-ingressos class="ingressos" [filmeSelecionado]="filme" [poltronasSelecionadas]="poltronasSelecionadas" [ingressos]="ingressos"></app-ingressos>
+  <app-ingressos class="ingressos" [filmeSelecionado]="filme" [ingressos]="ingressos" [sala]="sala"></app-ingressos>
 </section>
